@@ -14,7 +14,7 @@ import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestClassA { //Admin role
+public class TC1_286623 { //Admin role
     WebDriver driver;
     WebDriverWait wait;
 
