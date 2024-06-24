@@ -66,7 +66,6 @@ public class TC1_286623 { //Admin role
 
         Thread.sleep(1000);
 
-
         // Click the login button
         WebElement loginButton = driver.findElement(By.xpath("//button[@name='submit']"));
         loginButton.click();
@@ -116,8 +115,8 @@ public class TC1_286623 { //Admin role
         wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 
         Thread.sleep(1000);
-        // Handle the alert
 
+        // Handle the alert
         Alert successAlert = driver.switchTo().alert();
         String successAlertText = successAlert.getText();
         assertEquals("Success", successAlertText);
