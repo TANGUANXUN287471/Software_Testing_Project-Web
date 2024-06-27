@@ -210,7 +210,7 @@ public class TC2_285239 { //Admin role
 
         // Upload final paper in PDF format
         WebElement uploadButton = driver.findElement(By.name("fileToUpload"));
-        uploadButton.sendKeys("C:\\Users\\hongr\\Downloads\\final_paper.pdf");
+        uploadButton.sendKeys("C:/Users/choon/Downloads/final_paper.pdf");
         Thread.sleep(2000);
 
         // Click Submit button
