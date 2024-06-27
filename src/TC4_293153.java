@@ -105,6 +105,9 @@ public class TC4_293153 { //Review Role
         driver.get("https://sandbox.soc-conferences.com/reviewer/login.php");
         Thread.sleep(1000);
 
+        // Maximize the browser window
+        driver.manage().window().maximize();
+
         // Enter email, password, and click "Remember Me"
         driver.findElement(By.id("idemail")).sendKeys("muyya67@gmail.com");
         driver.findElement(By.id("idpass")).sendKeys("Ipmr3avQ");
@@ -156,6 +159,9 @@ public class TC4_293153 { //Review Role
         driver.get("https://sandbox.soc-conferences.com/reviewer/login.php");
         Thread.sleep(1000);
 
+        // Maximize the browser window
+        driver.manage().window().maximize();
+
         // Enter email, password, and click "Remember Me"
         driver.findElement(By.id("idemail")).sendKeys("muyya67@gmail.com");
         driver.findElement(By.id("idpass")).sendKeys("Ipmr3avQ");
@@ -204,6 +210,9 @@ public class TC4_293153 { //Review Role
         //open website
         driver.get("https://sandbox.soc-conferences.com/reviewer/login.php");
         Thread.sleep(1000);
+
+        // Maximize the browser window
+        driver.manage().window().maximize();
 
         // Enter email, password, and click "Remember Me"
         driver.findElement(By.id("idemail")).sendKeys("muyya67@gmail.com");
@@ -302,6 +311,9 @@ public class TC4_293153 { //Review Role
         //open website
         driver.get("https://sandbox.soc-conferences.com/reviewer/login.php");
         Thread.sleep(1000);
+
+        // Maximize the browser window
+        driver.manage().window().maximize();
 
         // Enter email, password, and click "Remember Me"
         driver.findElement(By.id("idemail")).sendKeys("muyya67@gmail.com");
