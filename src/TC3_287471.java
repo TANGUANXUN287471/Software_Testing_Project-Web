@@ -1,5 +1,3 @@
-package uum;
-
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -26,7 +24,8 @@ public class TC3_287471 {
 
     @BeforeClass
     public static void setUp() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "C:/Users/guanx/OneDrive/Documents/chromedriver-win64/chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "C:/Users/guanx/OneDrive/Documents/chromedriver-win64/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/Users/choon/Documents/Java Libraries/chromedriver-win64/chromedriver-win64/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

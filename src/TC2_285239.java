@@ -1,6 +1,3 @@
-package my.uum;
-
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +21,8 @@ public class TC2_285239 { //Admin role
     public void setUp() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*");
-        System.setProperty("webdriver.chrome.driver", "C:\\Selenium driver\\Chrome driver\\chromedriver-win64\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "C:\\Selenium driver\\Chrome driver\\chromedriver-win64\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/Users/choon/Documents/Java Libraries/chromedriver-win64/chromedriver-win64/chromedriver.exe");
         driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15)); // Increased implicit wait
     }
