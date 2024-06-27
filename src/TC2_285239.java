@@ -1,6 +1,8 @@
 import org.junit.After;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -38,6 +40,9 @@ public class TC2_285239 { //Admin role
     private void login() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30)); // Increased wait time
         driver.get("https://sandbox.soc-conferences.com/admin/login.php");
+
+        // Maximize the browser window
+        driver.manage().window().maximize();
 
         System.out.println("Navigated to login page");
 

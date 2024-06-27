@@ -1,10 +1,9 @@
 import org.junit.After;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.junit.runners.MethodSorters;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -13,6 +12,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class TC1_286623 { //Admin role
     WebDriver driver;
@@ -30,6 +31,9 @@ public class TC1_286623 { //Admin role
 
         // Navigate to the admin login page
         driver.get("https://sandbox.soc-conferences.com/admin/login.php");
+
+        // Maximize the browser window
+        driver.manage().window().maximize();
 
         // Perform login
         // Enter email
@@ -222,12 +226,27 @@ public class TC1_286623 { //Admin role
             }
         }
 
-        // Sleep for 1 seconds
-        Thread.sleep(1000);
+        // Sleep for 2 seconds
+        Thread.sleep(2000);
+
+        // Scroll until the 'paper review' element is visible
+        WebElement reviewElement = driver.findElement(By.xpath("/html/body/div[3]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", reviewElement);
+
+        // Scroll up a bit
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, -200);");
+
+        Thread.sleep(2000);
 
         //Click on "Review Management"
         WebElement reviewButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[3]/div/div/div/a[2]/button")));
         reviewButton.click();
+
+        Thread.sleep(2000);
+
+        // Scroll until the 'assign reviewer' element is visible
+        WebElement assignElement = driver.findElement(By.xpath("/html/body/div[4]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", assignElement);
 
         Thread.sleep(2000);
 
@@ -250,6 +269,12 @@ public class TC1_286623 { //Admin role
         wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
 
         Thread.sleep(2000);
+
+        // Scroll until the 'list of reviewer' element is visible
+        WebElement reviewerElement = driver.findElement(By.xpath("/html/body/div[4]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", reviewerElement);
+
+        Thread.sleep(3000);
 
         //Click on the "Assign" button
         WebElement assignButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[4]/div/div[3]/div/table/tbody/tr[11]/td[6]/a/input")));
@@ -306,12 +331,27 @@ public class TC1_286623 { //Admin role
             }
         }
 
-        // Sleep for 1 seconds
-        Thread.sleep(1000);
+        // Sleep for 2 seconds
+        Thread.sleep(2000);
+
+        // Scroll until the 'paper review' element is visible
+        WebElement reviewElement = driver.findElement(By.xpath("/html/body/div[3]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", reviewElement);
+
+        // Scroll up a bit
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, -200);");
+
+        Thread.sleep(2000);
 
         //Click on "Review Management"
         WebElement reviewButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[3]/div/div/div/a[2]/button")));
         reviewButton.click();
+
+        Thread.sleep(2000);
+
+        // Scroll until the 'assign reviewer' element is visible
+        WebElement assignElement = driver.findElement(By.xpath("/html/body/div[4]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", assignElement);
 
         Thread.sleep(2000);
 
@@ -334,6 +374,12 @@ public class TC1_286623 { //Admin role
         wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
 
         Thread.sleep(2000);
+
+        // Scroll until the 'list of reviewer' element is visible
+        WebElement reviewerElement = driver.findElement(By.xpath("/html/body/div[4]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", reviewerElement);
+
+        Thread.sleep(3000);
 
         //Click on the "Assign" button
         WebElement assignButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[4]/div/div[3]/div/table/tbody/tr[11]/td[6]/a/input")));
