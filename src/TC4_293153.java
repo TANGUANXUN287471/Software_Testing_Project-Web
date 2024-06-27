@@ -38,6 +38,9 @@ public class TC4_293153 { //Review Role
         // Open the login page
         driver.get("https://sandbox.soc-conferences.com/reviewer/login.php");
 
+        // Maximize the browser window
+        driver.manage().window().maximize();
+
         // Wait for the "Create here" link to be present in the DOM
         WebElement createHereLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div[2]/p/a[1]")));
 
