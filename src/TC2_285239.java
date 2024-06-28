@@ -138,7 +138,7 @@ public class TC2_285239 { //Admin role
         // Locate the remarks field by XPath expression
         WebElement remarksField = driver.findElement(By.xpath("//textarea[@name='remark']"));
         remarksField.clear(); // Clear any existing text
-        remarksField.sendKeys("Camera Ready");
+        remarksField.sendKeys("The paper is Camera Ready");
         Thread.sleep(2000);
 
         WebElement updateButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'Update')]")));
