@@ -95,9 +95,9 @@ public class TC2_285239 { //Admin role
         }
     }
 
-    //CMS_01.06 Update journal/paper status
+    //CMS_04.02 update journal status (Under Review) - Tests the functionality to update journal status to "Under Review"
     @Test
-    public void testUpdateJournalStatus() throws InterruptedException {
+    public void CMS_04_02() throws InterruptedException {
         login();
         Thread.sleep(2000);
         navigateToPapersTab();
@@ -170,9 +170,9 @@ public class TC2_285239 { //Admin role
         System.out.println("Test Update Paper Status is successful!");
     }
 
-    //CMS_01.07 management of publishment of paper
+    //CMS_05 Publish Journal - Tests the functionality to manage the publishing details of a journal
     @Test
-    public void testPublishJournal() throws InterruptedException {
+    public void CMS_05() throws InterruptedException {
         login();
         Thread.sleep(2000);
         navigateToPapersTab();
@@ -253,9 +253,9 @@ public class TC2_285239 { //Admin role
 
 
 
-    //CMS_01.08 Update payment status
+    //CMS_06 Update Payment Status - Tests the functionality to update the payment status of a journal.
     @Test
-    public void testUpdatePaymentStatus() throws InterruptedException {
+    public void CMS_06() throws InterruptedException {
         login();
         Thread.sleep(2000);
         navigateToPaymentTab();
@@ -329,9 +329,9 @@ public class TC2_285239 { //Admin role
         System.out.println("Test Update Payment Status is successful!");
     }
 
-    //CMS_01.09 Changing Conference title in settings
+    //CMS_07 Change Conference Title - Tests the functionality for changing the conference name
     @Test
-    public void testChangeConferenceTitle() throws InterruptedException {
+    public void CMS_07() throws InterruptedException {
         login();
         Thread.sleep(2000);
         navigateToSettings();
@@ -382,9 +382,9 @@ public class TC2_285239 { //Admin role
         System.out.println("Test Change Conference Title is successful!");
     }
 
-    //CMS_01.10 Verifying Review's CV
+    //CMS_08 Verify Reviewer CV - Tests the functionality to verify reviewer CVs
     @Test
-    public void testVerifyReviewerCV() throws InterruptedException {
+    public void CMS_08() throws InterruptedException {
         login();
         Thread.sleep(2000);
         navigateToReviewers();
@@ -468,4 +468,3 @@ public class TC2_285239 { //Admin role
     }
 
 }
-
