@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -199,7 +200,7 @@ public class TC1_286623 { //Admin role
         }
     }
 
-    //CMS_03.01 Assign Reviewer (Expertise) - Tests the functionality to assign reviewers for the paper received.
+    //CMS_03.01 Assign Reviewer (Name) - Tests the functionality to assign reviewers for the paper received.
     @Test
     public void CMS_03_01() throws InterruptedException {
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -210,8 +211,22 @@ public class TC1_286623 { //Admin role
         WebElement papersTab = driver.findElement(By.xpath("//a[@href='papers.php' and contains(@class, 'w3-bar-item')]"));
         papersTab.click();
 
+        Thread.sleep(1000);
+
+        //Enter Author's name 'Tan Guan Xun'
+        WebElement searchAuthor = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/form/div[1]/input"));
+        wait.until(ExpectedConditions.elementToBeClickable(searchAuthor)).sendKeys("Tan Guan Xun");
+
+        Thread.sleep(2000);
+
+        // Click the "Search" button
+        WebElement searchButton = driver.findElement(By.xpath("        /html/body/div[2]/div[2]/div/form/div[3]/button\n"));
+        wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+
+        Thread.sleep(2000);
+
         //Click on "details"
-        WebElement detailsTextButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[text()='Submitted']/following-sibling::td/a[contains(text(),'Details')]")));
+        WebElement detailsTextButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[text()='Under Review']/following-sibling::td/a[contains(text(),'Details')]")));
         detailsTextButton.click();
 
         // Sleep for 1 seconds
@@ -250,23 +265,23 @@ public class TC1_286623 { //Admin role
 
         Thread.sleep(2000);
 
-        //Enter reviewer's Expertise
-        WebElement searchBar = driver.findElement(By.xpath("//*[@id=\"idtitle\"]"));
-        wait.until(ExpectedConditions.elementToBeClickable(searchBar)).sendKeys("Cybersecurity");
+        //Select "Name" from drop-down button
+        WebElement selectArea = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[4]/div/form/div[2]/select")));
+        Select dropdown = new Select(selectArea);// Create a Select object
+        dropdown.selectByVisibleText("Name");// Select the option 'All'
+        System.out.println("Name is selected");
 
         Thread.sleep(2000);
 
-        //Select "Expertise" from drop-down button
-        WebElement selectArea = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[4]/div/form/div[2]/select")));
-        Select dropdown = new Select(selectArea);// Create a Select object
-        dropdown.selectByVisibleText("Expertise");// Select the option 'All'
-        System.out.println("Expertise is selected");
+        //Enter reviewer's name
+        WebElement searchBar = driver.findElement(By.xpath("//*[@id=\"idtitle\"]"));
+        wait.until(ExpectedConditions.elementToBeClickable(searchBar)).sendKeys("muaz");
 
         Thread.sleep(2000);
 
         //Click the "Search" button
-        WebElement searchButton = driver.findElement(By.xpath("//*[@id=\"idsubmit\"]"));
-        wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+        WebElement searchReviewerButton = driver.findElement(By.xpath("//*[@id=\"idsubmit\"]"));
+        wait.until(ExpectedConditions.elementToBeClickable(searchReviewerButton)).click();
 
         Thread.sleep(2000);
 
@@ -277,7 +292,7 @@ public class TC1_286623 { //Admin role
         Thread.sleep(3000);
 
         //Click on the "Assign" button
-        WebElement assignButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[4]/div/div[3]/div/table/tbody/tr[11]/td[6]/a/input")));
+        WebElement assignButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[4]/div/div[3]/div/table/tbody/tr[2]/td[6]/a/input")));
         assignButton.click();
 
         Thread.sleep(2000);
@@ -408,7 +423,7 @@ public class TC1_286623 { //Admin role
 
     }
 
-    //CMS_04.01 Update journal status (Received) - Tests the functionality to update the status of a journal to "Received".
+    //CMS_04.01 Update journal status (Accepted) - Tests the functionality to update the status of a journal to "Accepted".
     @Test
     public void CMS_04_01() throws InterruptedException {
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -419,12 +434,26 @@ public class TC1_286623 { //Admin role
         WebElement papersTab = driver.findElement(By.xpath("//a[@href='papers.php' and contains(@class, 'w3-bar-item')]"));
         papersTab.click();
 
+        Thread.sleep(2000);
+
+        //Enter Author's name 'Tan Guan Xun'
+        WebElement searchAuthor = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/form/div[1]/input"));
+        wait.until(ExpectedConditions.elementToBeClickable(searchAuthor)).sendKeys("Tan Guan Xun");
+
+        Thread.sleep(2000);
+
+        // Click the "Search" button
+        WebElement searchButton = driver.findElement(By.xpath("        /html/body/div[2]/div[2]/div/form/div[3]/button\n"));
+        wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+
+        Thread.sleep(2000);
+
         //Click on "details"
-        WebElement detailsTextButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[text()='Submitted']/following-sibling::td/a[contains(text(),'Details')]")));
+        WebElement detailsTextButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[text()='Under Review']/following-sibling::td/a[contains(text(),'Details')]")));
         detailsTextButton.click();
 
-        // Sleep for 1 seconds
-        Thread.sleep(1000);
+        // Sleep for 3 seconds
+        Thread.sleep(2000);
 
         // Switch to the new tab
         String currentHandle = driver.getWindowHandle();
@@ -435,31 +464,31 @@ public class TC1_286623 { //Admin role
             }
         }
 
-        // Sleep for 1 seconds
+        // Sleep for 1 second
         Thread.sleep(1000);
 
-        //Select "Received" from the drop-down button
+        // Select "Accepted" from the drop-down button
         WebElement selectStatus = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div/div[2]/a/div/div/form/p[1]/select")));
-        Select dropdown = new Select(selectStatus);// Create a Select object
-        dropdown.selectByVisibleText("Received");// Select the option 'All'
-        System.out.println("Received is selected");
+        Select dropdown = new Select(selectStatus);
+        dropdown.selectByVisibleText("Accepted");
+        System.out.println("Paper Status- Accepted is selected");
 
-        // Sleep for 1 seconds
+        // Sleep for 1 second
         Thread.sleep(1000);
 
-        //Enter conference remarks
+        // Enter conference remarks
         WebElement remarksText = driver.findElement(By.xpath("//*[@id=\"idremark\"]"));
         remarksText.clear(); // Clear any existing text
-        wait.until(ExpectedConditions.elementToBeClickable(remarksText)).sendKeys("The paper is received and ready to proceed.");
+        wait.until(ExpectedConditions.elementToBeClickable(remarksText)).sendKeys("The paper is accepted and ready to proceed.");
 
-        // Sleep for 1 seconds
+        // Sleep for 1 second
         Thread.sleep(1000);
 
-        //Click the "Update" button
+        // Click the "Update" button
         WebElement updateButton = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/a/div/div/form/p[3]/button"));
         wait.until(ExpectedConditions.elementToBeClickable(updateButton)).click();
 
-        // Sleep for 1 seconds
+        // Sleep for 1 second
         Thread.sleep(1000);
 
         // Handle confirmation alert
@@ -468,7 +497,7 @@ public class TC1_286623 { //Admin role
         assertEquals("Are you sure?", confirmDeleteAlertText);
         confirmDeleteAlert.accept();
 
-        // Sleep for 1 seconds
+        // Sleep for 1 second
         Thread.sleep(1000);
 
         // Handle success alert
@@ -477,7 +506,7 @@ public class TC1_286623 { //Admin role
         assertEquals("Success", successAlertText);
         successAlert.accept();
 
-        System.out.println("The journal status successfully updated to Received.");
+        System.out.println("The journal status successfully updated to Accepted.");
     }
 
     @After

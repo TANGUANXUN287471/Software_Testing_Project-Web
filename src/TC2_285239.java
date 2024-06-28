@@ -95,7 +95,7 @@ public class TC2_285239 { //Admin role
         }
     }
 
-    //CMS_04.02 update journal status (Under Review) - Tests the functionality to update journal status to "Under Review"
+    //CMS_04.02 update journal status (Camera Ready) - Tests the functionality to update journal status to "Camera Ready"
     @Test
     public void CMS_04_02() throws InterruptedException {
         login();
@@ -124,7 +124,7 @@ public class TC2_285239 { //Admin role
 
             // Interact with the dropdown
             Select selectStatus = new Select(statusDropdown);
-            selectStatus.selectByVisibleText("Under Review");
+            selectStatus.selectByVisibleText("Camera Ready");
             System.out.println("Dropdown value selected");
             Thread.sleep(2000);
         } catch (NoSuchElementException e) {
@@ -138,7 +138,7 @@ public class TC2_285239 { //Admin role
         // Locate the remarks field by XPath expression
         WebElement remarksField = driver.findElement(By.xpath("//textarea[@name='remark']"));
         remarksField.clear(); // Clear any existing text
-        remarksField.sendKeys("Received and currently under review");
+        remarksField.sendKeys("Camera Ready");
         Thread.sleep(2000);
 
         WebElement updateButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'Update')]")));
