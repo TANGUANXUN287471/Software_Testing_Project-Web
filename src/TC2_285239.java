@@ -104,6 +104,20 @@ public class TC2_285239 { //Admin role
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
+        Thread.sleep(2000);
+
+        //Enter Author's name 'Tan Guan Xun'
+        WebElement searchAuthor = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/form/div[1]/input"));
+        wait.until(ExpectedConditions.elementToBeClickable(searchAuthor)).sendKeys("Tan Guan Xun");
+
+        Thread.sleep(2000);
+
+        // Click the "Search" button
+        WebElement searchButton = driver.findElement(By.xpath("        /html/body/div[2]/div[2]/div/form/div[3]/button\n"));
+        wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+
+        Thread.sleep(2000);
+
         WebElement detailsLink = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Details')]")));
         detailsLink.click();
         Thread.sleep(2000);
@@ -168,7 +182,7 @@ public class TC2_285239 { //Admin role
         Thread.sleep(2000);
         driver.quit();
         System.out.println("Test Update Paper Status is successful!");
-    }
+}
 
     //CMS_05 Publish Journal - Tests the functionality to manage the publishing details of a journal
     @Test
