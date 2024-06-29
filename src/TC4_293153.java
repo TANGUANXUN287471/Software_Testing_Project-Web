@@ -22,7 +22,8 @@ public class TC4_293153 { //Review Role
     @Before
     public void setUp() {
         // Set the path to the chromedriver executable
-        System.setProperty("webdriver.chrome.driver", "C:\\\\selenium webdriver\\\\chromedriver-win64\\\\chromedriver.exe");
+//        System.setProperty("webdriver.chrome.driver", "C:\\\\selenium webdriver\\\\chromedriver-win64\\\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/Users/choon/Documents/Java Libraries/chromedriver-win64/chromedriver-win64/chromedriver.exe");
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
