@@ -111,8 +111,8 @@ public class TC3_287471 {
             Thread.sleep(1000);
 
             // Upload the files
-            driver.findElement(By.id("idfilea")).sendKeys("C:/Users/choon/Downloads/Software Testing (no aff).docx");
-            driver.findElement(By.id("idfileb")).sendKeys("C:/Users/choon/Downloads/Software Testing (with aff).docx");
+            driver.findElement(By.id("idfilea")).sendKeys("C:/Users/choon/Downloads/Software Testing (with aff).docx");
+            driver.findElement(By.id("idfileb")).sendKeys("C:/Users/choon/Downloads/Software Testing (no aff).docx");
 
             // Submit the form
             driver.findElement(By.id("idsubmit")).click();
@@ -247,10 +247,10 @@ public class TC3_287471 {
             Thread.sleep(2000);
 
             //Click on "details"
-            WebElement detailsTextButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[text()='Under Review']/following-sibling::td/a[contains(text(),'Details')]")));
+            WebElement detailsTextButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[text()='Submitted']/following-sibling::td/a[contains(text(),'Details')]")));
             detailsTextButton.click();
 
-// Sleep for 3 seconds
+            // Sleep for 3 seconds
             Thread.sleep(2000);
 
             // Switch to the new tab
@@ -365,7 +365,7 @@ public class TC3_287471 {
             // Handle the confirmation alert
             Alert confirmationAlert = driver.switchTo().alert();
             confirmationAlert.accept();
-            confirmationAlert.accept();
+
             Thread.sleep(1000);
 
 
@@ -516,12 +516,6 @@ public class TC3_287471 {
             login();
         }
 
-        @AfterClass
-        public static void tearDown() {
-            if (driver != null) {
-                driver.quit();
-            }
-        }
         @Test
         public void testUpdatePaymentDetails() throws InterruptedException {
             // Navigate to Papers section
