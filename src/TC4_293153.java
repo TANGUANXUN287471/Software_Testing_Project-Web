@@ -73,11 +73,12 @@ public class TC4_293153 { //Review Role
         // Sleep for 1 seconds
         Thread.sleep(1000);
         
+        // Handle success alert
+        System.out.println("The news is successfull download.");
         
     }
         
         
-    
     // CMS_15: Test Case for Decline Review Paper
     @Test
     public void testDeclinePaper() throws InterruptedException {
@@ -175,7 +176,7 @@ public class TC4_293153 { //Review Role
         driver.findElement(By.xpath("//*[@id='mySidebar']/div[2]/a[2]")).click();
 
         // Click the “Details” button
-        WebElement detailButton = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div/table/tbody/tr[3]/td[8]/a/button"));
+        WebElement detailButton = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div/table/tbody/tr[2]/td[8]/a/button"));
         wait.until(ExpectedConditions.elementToBeClickable(detailButton)).click();
         
         // Sleep for 1 seconds
