@@ -405,7 +405,7 @@ public class TC2_285239 { //Admin role
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-        // Admin selects payment to view details by clicking on the folder icon
+        // Admin selects reviewer to view CV details by clicking on the folder icon
         WebElement folderIcon = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[5]/div[1]/table/tbody/tr[2]/td[7]/a/button")));
         folderIcon.click();
         Thread.sleep(2000);
