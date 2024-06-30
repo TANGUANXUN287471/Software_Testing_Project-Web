@@ -352,11 +352,11 @@ public class TC3_287471 {
 
             // Choose file for Camera Ready
             WebElement cameraReadyUpload = driver.findElement(By.name("fileToUpload"));
-            cameraReadyUpload.sendKeys("C:/Users/guanx/OneDrive/Desktop/Software Testing (no aff).docx");
+            cameraReadyUpload.sendKeys("C:/Users/choon/Downloads/Software Testing (no aff).docx");
 
             // Choose file for Copyright Form
             WebElement copyrightFormUpload = driver.findElement(By.name("fileToUploadcr"));
-            copyrightFormUpload.sendKeys("C:/Users/guanx/OneDrive/Desktop/Software Testing (with aff).docx");
+            copyrightFormUpload.sendKeys("C:/Users/choon/Downloads/Software Testing (with aff).docx");
 
             // Click the Upload button
             driver.findElement(By.id("idsubmitcamera")).click();
